@@ -1,15 +1,9 @@
-Feature: Login to SF Org
-  As a user, I'd like to login to my Salesforce Org.
+Feature: Chatbot Automation
+  As a user, I'd like to login to WhatsApp Web and talk to the Chatbot
 
-  #Scenario: Login with the correct password
-  #  Given The user is in the Org Login Page
-  #  When the user fills in an email: "incubatorteam@oktana.com"
-  #  And writes a password: "incubator2022"
-  #  Then the Setup Page should be shown to the user
-
-
-  Scenario: Login with an incorrect password
-    Given The user is in the Org Login Page
-    When the user fills in an email: "incubatorteam@oktana.com"
-    And writes a password: "incubator2023"
-    Then an error message should be shown to the user
+  Scenario: Say Hello and Retrieve the Main Menu
+    Given The user is in the WhatsApp Web Page
+    When the user searches for the chatbot contact: "+51 958 438 106"
+    Then writes in "hola"
+    Then the main menu should be shown
+    Then writes in "cancelar"
