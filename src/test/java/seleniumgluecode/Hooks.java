@@ -24,22 +24,14 @@ public class Hooks {
 
         WebDriverManager.chromedriver().setup();
 
-
         ChromeOptions options = new ChromeOptions();
-
-        //Profile 2 ("Test")
-        options.addArguments("user-data-dir=/Users/david.heredia/Library/Application Support/Google/Chrome/");
-        options.addArguments("profile-directory=Profile 3");
-
-
-        //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        options.addArguments("chrome.switches", "--disable-extensions");
+        options.addArguments("--user-data-dir=/Users/david.heredia/Library/Application Support/Google/Chrome/");
+        options.addArguments("--profile-directory=Profile 3");
+        options.addArguments("start-maximized");
 
         //Starting Driver Object:
-        //CORREGIR ACÁ
         driver=new ChromeDriver(options);
-        //driver=new ChromeDriver();
-
 
         //Setting implicit wait time:
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -47,18 +39,6 @@ public class Hooks {
         //Getting into the page:
         driver.get("https://web.whatsapp.com/");
 
-
-        //sleep to scan QR code
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        //Maximizing the page:
-        driver.manage().window().maximize();
     }
 
     @After
